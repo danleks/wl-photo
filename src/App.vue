@@ -1,28 +1,80 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="mainWrapper">
+      <app-hero>
+        <slot name="arrowDown"></slot>
+      </app-hero>
+      <app-menu
+        :menuActive="menuActive"
+        @close-menu="closeMenu()"
+      ></app-menu>
+      <app-about></app-about>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+import Hero from './components/Hero.vue';
+import Claim from './components/Claim.vue';
+import Menu from './components/Menu.vue';
+import About from './components/About.vue';
+
+
 
 export default {
   name: 'app',
   components: {
-    HelloWorld,
+    'app-hero': Hero,
+    'app-claim': Claim,
+    'app-menu': Menu,
+    'app-about': About,
   },
+  data() {
+    return {
+      menuActive: false,
+      x: 0,
+    }
+  },
+
+  methods: {
+    closeMenu() {
+      if (this.menuActive === false) {
+        this.menuActive = true;
+      } else {
+        this.menuActive = false;
+      }
+    },
+  },
+
+  mounted() {
+
+  }
 };
 </script>
 
 <style lang="scss">
+@import url('https://fonts.googleapis.com/css?family=Cabin:100,400,400i,500i,700');
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+  padding: 0;
+  margin: 0;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  height: 100vh;
+  font-family: 'Cabin', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+}
+
+.mainWrapper {
+  position: relative;
 }
 </style>
