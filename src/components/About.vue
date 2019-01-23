@@ -9,29 +9,6 @@
             </h2>
             <p>I believe that the way you percept your surroundings influences your life. Be creative and see what seems to be hidden. Follow me and see the world through my eyes. </p>
         </div>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-
-
     </section>
 </template>
 
@@ -51,7 +28,15 @@ export default {
         padding: 26px;
     }
 
+    @media(min-width: 1024px) {
+        display: flex;
+    }
+
     &__img {
+
+         @media(min-width: 1024px) {
+            flex: 1;
+        }
 
         img {
             width: 100%;
@@ -61,9 +46,13 @@ export default {
 
     &__content {
 
-
          @media(min-width: 768px) {
             padding: 0 60px;
+        }
+
+         @media(min-width: 1024px) {
+            flex: 1;
+            align-self: center;
         }
 
         color: #384653;

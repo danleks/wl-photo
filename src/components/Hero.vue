@@ -32,7 +32,7 @@ export default {
         },
 
         scrollDown() {
-            document.querySelector('.aboutWrapper').scrollIntoView({
+            document.getElementById('about').scrollIntoView({
                 behavior: 'smooth'
             });
         }

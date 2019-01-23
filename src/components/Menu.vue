@@ -7,7 +7,7 @@
         </div>
         <transition name="slideDown">
         <div v-show="menuActive" class="navigation__list">
-            <ul>
+            <ul :class="[darkenMenu ? colorWhite : '']">
                 <li class="navigation__item">
                     <a class="navigation__link" href="#">
                         <i class="fas fa-home"></i>
@@ -47,6 +47,7 @@ export default {
             burgerWhite:  'navigation__burger--white',
             nav: 'navigation',
             navDark: 'navigation--dark',
+            colorWhite: 'colorWhite',
             darkenMenu: false,
         }
     },
@@ -73,7 +74,7 @@ export default {
         top: 0px;
         z-index: 2;
         width: 100%;
-        transition: all .3s;
+        transition: background-color .3s;
 
         @media(min-width: 768px) {
             height: 60px;
@@ -197,12 +198,14 @@ export default {
                 justify-content: center;
                 list-style: none;
 
+
                  @media(min-width: 1024px) {
                     width: 550px;
-                    padding-top: 15px;
+                    height: 100%;
                     flex-direction: row;
-                    align-items: unset;
+                    align-items: center;
                     justify-content: space-evenly;
+                    color: #384653;
             }
             }
 
@@ -210,7 +213,7 @@ export default {
                 display: flex !important;
                 justify-content: flex-end;
                 background-color: transparent;
-                height: auto;
+                height: 100%;
             }
         }
 
@@ -255,7 +258,7 @@ export default {
 
             @media(min-width: 1024px) {
                 font-size: 16px;
-                color: #384653;
+                color: inherit;
             }
         }
 
@@ -273,6 +276,10 @@ export default {
         .slideDown-leave-to {
             transform: translateY(-300px);
             opacity: 0;
+        }
+
+        .colorWhite {
+            color: #fff;
         }
     }
 </style>
