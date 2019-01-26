@@ -9,6 +9,9 @@
         @close-menu="closeMenu()"
       ></app-menu>
       <app-about></app-about>
+      <app-gallery
+      :gallery="gallery"
+      ></app-gallery>
     </div>
   </div>
 </template>
@@ -18,6 +21,8 @@ import Hero from './components/Hero.vue';
 import Claim from './components/Claim.vue';
 import Menu from './components/Menu.vue';
 import About from './components/About.vue';
+import Gallery from './components/Gallery.vue';
+
 
 
 
@@ -28,11 +33,64 @@ export default {
     'app-claim': Claim,
     'app-menu': Menu,
     'app-about': About,
+    'app-gallery': Gallery,
   },
   data() {
     return {
       menuActive: false,
       x: 0,
+      gallery: [
+        {
+          id: 1,
+          url: require('./assets/gallery-1.jpg'),
+          caption: '',
+          label: 'nature',
+        },
+        {
+          id: 2,
+          url: require('./assets/gallery-2.jpg'),
+          caption: '',
+          label: 'nature',
+        },
+        {
+          id: 3,
+          url: require('./assets/gallery-3.jpg'),
+          caption: '',
+          label: 'building',
+        },
+        {
+          id: 4,
+          url: require('./assets/gallery-4.jpg'),
+          caption: '',
+          label: 'building',
+        },
+        {
+          id: 5,
+          url: require('./assets/gallery-5.jpg'),
+          caption: '',
+          label: 'nature',
+
+        },
+        {
+          id: 6,
+          url: require('./assets/gallery-6.jpg'),
+          caption: '',
+          label: 'cars',
+
+        },
+        {
+          id: 7,
+          url: require('./assets/gallery-7.jpg'),
+          caption: '',
+          label: 'buildings',
+        },
+        {
+          id: 8,
+          url: require('./assets/gallery-8.jpg'),
+          caption: '',
+          label: 'animals',
+        },
+      ]
     }
   },
 
@@ -54,9 +112,18 @@ export default {
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css?family=Cabin:100,400,400i,500i,700');
+:root {
+  --sectionGutter: 2rem;
+  --mainLetterFontSize: 7.2rem;
+  --headerFontsize: 2.4rem;
+  --headerLetterSpacing: .2rem;
+  --contentFontsize: 1.4rem;
+  --contentLetterSpacing: .1rem;
+}
 html {
   box-sizing: border-box;
   scroll-behavior: smooth;
+  font-size: 62.5%;
 }
 
 *, *:before, *:after {

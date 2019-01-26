@@ -22,10 +22,11 @@ export default {
 
 .aboutWrapper {
     position: relative;
-    padding: 20px;
+    padding: 0 2rem 0 2rem;
+    padding-top: var(--sectionGutter);
 
     @media(min-width: 768px) {
-        padding: 26px;
+        padding: 2.6rem;
     }
 
     @media(min-width: 1024px) {
@@ -47,7 +48,7 @@ export default {
     &__content {
 
          @media(min-width: 768px) {
-            padding: 0 60px;
+            padding: 0 6rem;
         }
 
          @media(min-width: 1024px) {
@@ -58,26 +59,27 @@ export default {
         color: #384653;
 
         h2 {
-            margin: 10px 0;
-            font-size: 24px;
+            margin: 1rem 0;
+            font-size: var(--headerFontsize);
             text-align: center;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
+            letter-spacing: var(--headerLetterSpacing);
+            margin-bottom: 1rem;
 
             @media(min-width: 768px) {
-                font-size: 38px;
+                font-size: 3.8rem;
             }
         }
 
         p {
-            font-size: 14px;
+            padding-bottom: 2rem;
+            font-size: var(--contentFontsize);
             text-align: justify;
             font-size: 14px;
-            letter-spacing: 1px;
+            letter-spacing: var(--contentLetterSpacing);
             line-height: 1.4;
 
              @media(min-width: 768px) {
-                font-size: 24px;
+                font-size: 2.4rem;
             }
         }
     }

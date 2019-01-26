@@ -5,9 +5,9 @@
             <span>ay</span>
             <span>reamer</span>
         </h1>
-        <div class="claimWrapper__text">
+        <!-- <div class="claimWrapper__text">
             <p>Photos I like most</p>
-        </div>
+        </div> -->
     </section>
 </template>
 
@@ -19,24 +19,23 @@ export default {
 
 <style lang="scss" scoped>
     .claimWrapper {
-
+        position: absolute;
+        top: 35%;
+        left: 25%;
+        transform: translate(-50%, -50%);
 
         &__heading {
-            position: absolute;
-            top: 32%;
-            left: 18%;
-            transform: translate(-50%, -50%);
             color: #384653;
             font-weight: 500;
 
             & > span {
             position: absolute;
-            font-size: 38px;
+            font-size: 3.8rem;
             text-transform: uppercase;
-            letter-spacing: 5px;
+            letter-spacing: .5rem;
 
             @media(min-width: 768px) {
-                font-size: 72px;
+                font-size: var(--mainLetterFontSize);
             }
 
             @media(min-width: 1024px) {
@@ -45,11 +44,11 @@ export default {
 
             &:first-child {
                 position: relative;
-                font-size: 120px;
+                font-size: 12rem;
                 color: #942130;
 
                 @media(min-width: 768px) {
-                    font-size: 288px;
+                    font-size: 28.8rem;
                 }
             }
 
@@ -68,32 +67,32 @@ export default {
         }
         }
 
-        &__text {
-            width: 100%;
-            position: absolute;
-            top: 48.7%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 12px;
-            color: rgba(#942130,.3);
-            text-transform: uppercase;
+        // &__text {
+        //     width: 100%;
+        //     position: absolute;
+        //     top: 48.7%;
+        //     left: 50%;
+        //     transform: translate(-50%, -50%);
+        //     font-size: 1.2rem;
+        //     color: rgba(#942130,.3);
+        //     text-transform: uppercase;
 
-            @media(min-width: 768px) {
-                font-size: 16px;
-                color: transparent;
-                text-shadow: 0 0 5px rgba(#942130,.3);
-            }
+        //     @media(min-width: 768px) {
+        //         font-size: 16px;
+        //         color: transparent;
+        //         text-shadow: 0 0 5px rgba(#942130,.3);
+        //     }
 
-            p {
-                text-align: center;
-                letter-spacing: 4px;
+        //     p {
+        //         text-align: center;
+        //         letter-spacing: 4px;
 
-                @media(min-width: 768px) {
-                    font-size: 30px;
-                    letter-spacing: 10px;
-                }
-            }
-        }
+        //         @media(min-width: 768px) {
+        //             font-size: 30px;
+        //             letter-spacing: 10px;
+        //         }
+        //     }
+        // }
 
     }
 

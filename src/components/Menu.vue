@@ -21,7 +21,7 @@
                     </a>
                 </li>
                 <li class="navigation__item">
-                    <a class="navigation__link" href="#">
+                    <a class="navigation__link" href="#gallery">
                         <i class="fas fa-images"></i>
                         gallery
                     </a>
@@ -69,7 +69,7 @@ export default {
 
 <style lang="scss" scoped>
     .navigation {
-        height: 45px;
+        height: 4.5rem;
         position: fixed;
         top: 0px;
         z-index: 2;
@@ -77,7 +77,7 @@ export default {
         transition: background-color .3s;
 
         @media(min-width: 768px) {
-            height: 60px;
+            height: 6rem;
         }
 
         &--dark {
@@ -89,14 +89,14 @@ export default {
             top: 50%;
             right: 2%;
             transform: translate(0%, -50%);
-            width: 25px;
-            height: 25px;
+            width: 2.5rem;
+            height: 2.5rem;
             cursor: pointer;
             z-index: 5;
 
             @media(min-width: 768px) {
-                width: 39px;
-                height: 30px;
+                width: 3.9rem;
+                height: 3rem;
             }
 
             @media(min-width: 1024px) {
@@ -106,44 +106,44 @@ export default {
             &--active {
                 position: relative;
                 display: inline-block;
-                width: 14px;
-                height: 2px;
+                width: 1.4rem;
+                height: .2rem;
                 background-color: #384653;
 
                 @media(min-width: 768px) {
-                    width: 30px;
-                    height: 4px;
+                    width: 3rem;
+                    height: .4rem;
                 }
 
                 &::before,
                 &::after {
                     content: '';
-                    width: 18px;
-                    height: 2px;
+                    width: 1.8rem;
+                    height: .2rem;
                     background-color: inherit;
                     position: absolute;
                     transition: transform .5s;
 
                      @media(min-width: 768px) {
-                        width: 34px;
-                        height: 4px;
+                        width: 3.4rem;
+                        height: .4rem;
                     }
 
                 }
 
                 &::before {
-                    top: 6px;
+                    top: .6rem;
 
                     @media(min-width: 768px) {
-                        top: 10px;
+                        top: 1rem;
                     }
                 }
 
                 &::after {
-                    bottom: 6px;
+                    bottom: .6rem;
 
                     @media(min-width: 768px) {
-                        bottom: 10px;
+                        bottom: 1rem;
                     }
 
                 }
@@ -156,15 +156,15 @@ export default {
                 &::before,
                 &::after {
                     content: '';
-                    width: 18px;
-                    height: 2px;
+                    width: 1.8rem;
+                    height: .2rem;
                     background-color: #fff;
                     position: absolute;
                     transition: transform .5s;
 
                     @media(min-width: 768px) {
-                        width: 36px;
-                        height: 4px;
+                        width: 3.6rem;
+                        height: .4rem;
                     }
 
                 }
@@ -200,7 +200,7 @@ export default {
 
 
                  @media(min-width: 1024px) {
-                    width: 550px;
+                    width: 55rem;
                     height: 100%;
                     flex-direction: row;
                     align-items: center;
@@ -218,14 +218,14 @@ export default {
         }
 
         &__item {
-            padding: 16px 0;
+            padding: 1.6rem 0;
 
             @media(min-width: 768px) {
-                padding: 22px 0;
+                padding: 2.2rem 0;
             }
 
             @media(min-width: 1024px) {
-                padding: 0px 0px;
+                padding: 0 0;
             }
         }
 
@@ -253,11 +253,11 @@ export default {
             }
 
             @media(min-width: 768px) {
-                font-size: 28px;
+                font-size: 2.8rem;
             }
 
             @media(min-width: 1024px) {
-                font-size: 16px;
+                font-size: 1.6rem;
                 color: inherit;
             }
         }
@@ -270,11 +270,11 @@ export default {
         }
 
         .slideDown-enter {
-            transform: translateY(-200px);
+            transform: translateY(-20rem);
         }
 
         .slideDown-leave-to {
-            transform: translateY(-300px);
+            transform: translateY(-30rem);
             opacity: 0;
         }
 

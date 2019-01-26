@@ -83,14 +83,14 @@ export default {
 
             &__circle {
                 position: relative;
-                width: 45px;
-                height: 45px;
+                width: 4.5rem;
+                height: 4.5rem;
                 border-radius: 50%;
                 background-color: rgba(#000, .4);
 
                 @media(min-width: 768px) {
-                    width: 55px;
-                    height: 55px;
+                    width: 5.5rem;
+                    height: 5.5rem;
                 }
             }
 
@@ -107,7 +107,7 @@ export default {
                 animation: blink 2s infinite;
 
                 @media(min-width: 768px) {
-                    border-width: 11px 11px 0 11px;
+                    border-width: 1.1rem 1.1rem 0 1.1rem;
                 }
                 }
 
