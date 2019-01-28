@@ -31,6 +31,8 @@ export default {
 
     @media(min-width: 1024px) {
         display: flex;
+        width: 1000px;
+        margin: auto;
     }
 
     &__img {
@@ -79,7 +81,7 @@ export default {
             line-height: 1.4;
 
              @media(min-width: 768px) {
-                font-size: 2.4rem;
+                font-size: 2rem;
             }
         }
     }

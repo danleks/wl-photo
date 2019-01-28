@@ -4,31 +4,38 @@
             <h2>Photo Gallery</h2>
             <p>This is a small collection of photos <br/>I find inspiring</p>
         </header>
-        <div class="galleryWrapper__items">
-            <nav class="galleryWrapper__nav">
-                <a @click="filterBy($event)" href="#">All</a>
-                <a @click="filterBy($event)" href="#">Nature</a>
-                <a @click="filterBy($event)" href="#">Buildings</a>
-                <a @click="filterBy($event)" href="#">Cars</a>
-                <a @click="filterBy($event)" href="#">Animals</a>
-            </nav>
-
-            <figure :class="[modal ? modalContainer : '']" v-for="img in sortedImgs" :key="img.id">
-                <span v-if="modal" @click="closeModal()" class="close"></span>
-                <img :class="[modal ? modalItem : '']" @click="showModal($event)" :src="[modal ? imgModal : img.url]"
+        <nav class="galleryWrapper__nav">
+            <a @click="filterBy($event)" href="#">All</a>
+            <a @click="filterBy($event)" href="#">Nature</a>
+            <a @click="filterBy($event)" href="#">Buildings</a>
+            <a @click="filterBy($event)" href="#">Cars</a>
+            <a @click="filterBy($event)" href="#">Animals</a>
+        </nav>
+        <div class="galleryWrapper__items"
+        v-masonry
+        transition-duration="0.3s"
+        item-selector=".galleryWrapper__item"
+        column-width=".sizer"
+        gutter=".gutter-sizer"
+        >
+            <div class="sizer"></div>
+            <div class="gutter-sizer"></div>
+            <figure v-masonry-tile class="galleryWrapper__item" v-for="img in sortedImgs" :key="img.id">
+                <img @click="$emit('show-modal', $event.target.currentSrc)" :src="img.url"
                 alt="img.caption">
                 <figcaption>{{img.caption}}</figcaption>
             </figure>
-
         </div>
     </section>
 </template>
 
 <script>
+
 export default {
     data() {
         return {
             modal: false,
+            galleryItem: 'galleryWrapper__item',
             modalContainer: 'modal',
             modalItem: 'modal',
             imgModal: null,
@@ -59,7 +66,7 @@ export default {
             if (this.filter === 'All') {
                 this.filter = '';
             }
-        }
+        },
     },
 
     computed: {
@@ -71,9 +78,8 @@ export default {
     },
 
     mounted() {
-        //
+        this.$redrawVueMasonry();
     }
-
 }
 </script>
 
@@ -91,11 +97,19 @@ export default {
             & > h2 {
                 font-size: var(--headerFontsize);
                 letter-spacing: var(--headerLetterSpacing);
+
+                @media(min-width: 768px) {
+                    font-size: 3.8rem;
+                }
             }
 
             & > p {
                 font-size: var(--contentFontsize);
                 letter-spacing: var(--contentLetterSpacing);
+
+                @media(min-width: 768px) {
+                    font-size: 2.4rem;
+                }
             }
         }
 
@@ -118,9 +132,45 @@ export default {
 
 
         &__items {
+            width: 100%;
+            min-height: 100vh;
+
+            @media (min-width: 1024px) {
+                width: 90rem;
+                margin: auto;
+            }
+
+            //masonary styles
+
+            .sizer {
+                width: 100%;
+
+                @media(min-width: 768px) {
+                    width: 48%;
+                }
+
+                @media(min-width: 1024px) {
+                    width: 31.333%;
+                }
+            }
+
+            .gutter-sizer {
+                width: 2%;
+            }
+
+            // end of masonary styles
+
             figure {
                 position: relative;
                 width: 100%;
+
+                @media(min-width: 768px) {
+                    width: 48%;
+                }
+
+                @media(min-width: 1024px) {
+                    width: 31.333%;
+                }
 
                 &.modal {
                     width: 100%;
@@ -134,7 +184,7 @@ export default {
                 }
 
                 &:nth-child(odd) {
-                    padding: 2rem 0;
+                    //padding: 2rem 0;
                 }
 
                 & > img {
@@ -150,32 +200,10 @@ export default {
             }
         }
 
-        .close {
-            display: block;
-            position: absolute;
-            top: 1rem;
-            right: .5rem;
-            width: 2rem;
-            height: 2rem;
-            cursor: pointer;
-
-            &::before,
-            &::after {
-                content: '';
-                position: absolute;
-                top: 50%;
-                width: 1.8rem;
-                height: .2rem;
-                background-color: #fff;
-            }
-
-            &::before {
-                transform: rotate(45deg);
-            }
-
-            &::after {
-                transform: rotate(-45deg);
-            }
+        &__item {
+            margin-bottom: 2%;
         }
     }
+
+
 </style>

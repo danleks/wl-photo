@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div class="mainWrapper">
+    <div :class="[modal ? blured : '', mainWrapper]">
       <app-hero>
         <slot name="arrowDown"></slot>
       </app-hero>
@@ -11,8 +11,14 @@
       <app-about></app-about>
       <app-gallery
       :gallery="gallery"
+      @show-modal="showModal($event)"
       ></app-gallery>
     </div>
+    <app-modal
+      v-if="modal"
+      :modalImg="modalImg"
+      @close-modal="modal = false"
+      ></app-modal>
   </div>
 </template>
 
@@ -22,8 +28,7 @@ import Claim from './components/Claim.vue';
 import Menu from './components/Menu.vue';
 import About from './components/About.vue';
 import Gallery from './components/Gallery.vue';
-
-
+import Modal from './components/Modal.vue';
 
 
 export default {
@@ -34,11 +39,16 @@ export default {
     'app-menu': Menu,
     'app-about': About,
     'app-gallery': Gallery,
+    'app-modal': Modal,
   },
   data() {
     return {
       menuActive: false,
       x: 0,
+      modal: false,
+      modalImg: '',
+      mainWrapper: 'mainWrapper',
+      blured: 'mainWrapper--blured',
       gallery: [
         {
           id: 1,
@@ -102,6 +112,11 @@ export default {
         this.menuActive = false;
       }
     },
+
+    showModal(e) {
+      this.modal = true;
+      this.modalImg = e;
+    }
   },
 
   mounted() {
@@ -143,5 +158,9 @@ html {
 
 .mainWrapper {
   position: relative;
+
+  &--blured {
+    filter: blur(3px);
+  }
 }
 </style>
