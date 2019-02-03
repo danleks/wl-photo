@@ -1,4 +1,10 @@
-# wl-photo
+# A responsive website
+
+A responsive website with gallery.
+
+## helpful links:
+
+* [Live version](https://jolly-jennings-cff596.netlify.com/)
 
 ## Project setup
 ```
