@@ -21,7 +21,7 @@
             <div class="sizer"></div>
             <div class="gutter-sizer"></div>
             <figure v-masonry-tile class="galleryWrapper__item" v-for="img in sortedImgs" :key="img.id">
-                <img @click="$emit('show-modal', $event.target.currentSrc)" :src="img.url"
+                <img @click="$emit('show-modal', img, sortedImgs)" :src="img.url"
                 alt="img.caption">
                 <figcaption>{{img.caption}}</figcaption>
             </figure>
@@ -163,6 +163,7 @@ export default {
             figure {
                 position: relative;
                 width: 100%;
+                cursor: pointer;
 
                 @media(min-width: 768px) {
                     width: 48%;

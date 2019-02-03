@@ -11,12 +11,14 @@
       <app-about></app-about>
       <app-gallery
       :gallery="gallery"
-      @show-modal="showModal($event)"
+      @show-modal="showModal"
       ></app-gallery>
     </div>
     <app-modal
       v-if="modal"
       :modalImg="modalImg"
+      :sortedImg="sortedImg"
+      :gallery="gallery"
       @close-modal="modal = false"
       ></app-modal>
   </div>
@@ -46,56 +48,57 @@ export default {
       menuActive: false,
       x: 0,
       modal: false,
-      modalImg: '',
+      modalImg: {},
+      sortedImg: [],
       mainWrapper: 'mainWrapper',
       blured: 'mainWrapper--blured',
       gallery: [
         {
-          id: 1,
+          id: 0,
           url: require('./assets/gallery-1.jpg'),
           caption: '',
           label: 'nature',
         },
         {
-          id: 2,
+          id: 1,
           url: require('./assets/gallery-2.jpg'),
           caption: '',
           label: 'nature',
         },
         {
-          id: 3,
+          id: 2,
           url: require('./assets/gallery-3.jpg'),
           caption: '',
           label: 'building',
         },
         {
-          id: 4,
+          id: 3,
           url: require('./assets/gallery-4.jpg'),
           caption: '',
           label: 'building',
         },
         {
-          id: 5,
+          id: 4,
           url: require('./assets/gallery-5.jpg'),
           caption: '',
           label: 'nature',
 
         },
         {
-          id: 6,
+          id: 5,
           url: require('./assets/gallery-6.jpg'),
           caption: '',
           label: 'cars',
 
         },
         {
-          id: 7,
+          id: 6,
           url: require('./assets/gallery-7.jpg'),
           caption: '',
           label: 'buildings',
         },
         {
-          id: 8,
+          id: 7,
           url: require('./assets/gallery-8.jpg'),
           caption: '',
           label: 'animals',
@@ -113,9 +116,11 @@ export default {
       }
     },
 
-    showModal(e) {
+    showModal(img, sortedImg) {
+      console.log(img);
       this.modal = true;
-      this.modalImg = e;
+      this.modalImg = img;
+      this.sortedImg = sortedImg;
     }
   },
 
