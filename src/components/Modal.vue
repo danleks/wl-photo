@@ -150,8 +150,8 @@ export default {
                 border-left: 3px solid rgba(0,0,0, .6);
 
                  @media(min-width: 768px) {
-                    border-top: 1px solid rgba(255,255,255, 1);
-                    border-right: 1px solid rgba(255,255,255, 1);
+                    border-bottom: 1px solid rgba(255,255,255, 1);
+                    border-left: 1px solid rgba(255,255,255, 1);
                 }
             }
         }
