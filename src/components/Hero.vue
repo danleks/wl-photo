@@ -33,8 +33,9 @@ export default {
 
         scrollDown() {
             document.getElementById('about').scrollIntoView({
-                behavior: 'smooth'
-            });
+                behavior: 'smooth',
+                block: 'nearest',
+            })
         }
     },
 

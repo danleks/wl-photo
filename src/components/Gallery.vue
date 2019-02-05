@@ -86,7 +86,7 @@ export default {
 <style lang="scss" scoped>
     .galleryWrapper {
         position: relative;
-        padding-top: var(--sectionGutter);
+        margin-top: var(--sectionGutter);
         background-color: #384653;
         padding: 2rem;
 

@@ -1,13 +1,13 @@
 <template>
     <section id="about" class="aboutWrapper">
         <div class="aboutWrapper__img">
-            <img src="../assets/img-1.jpg" alt="a flying man with a camera">
+            <img src="../assets/img-2.jpg" alt="a flying man with a camera">
         </div>
         <div class="aboutWrapper__content">
             <h2>Beautiful things <br/>
             can make you fly
             </h2>
-            <p>I believe that the way you percept your surroundings influences your life. Be creative and see what seems to be hidden. Follow me and see the world through my eyes. </p>
+            <p>I believe the way you percept your surroundings influences your life. Be <span>creative</span> - notice what seems to be hidden. Follow me and catch a glimpse of the world through my eyes. </p>
         </div>
     </section>
 </template>
@@ -42,30 +42,37 @@ export default {
         }
 
         img {
+            display: block;
             width: 100%;
             height: auto;
         }
     }
 
     &__content {
+        color: white;
+        background: rgba(#384653, 1);
+        padding: 1rem 3rem;
 
          @media(min-width: 768px) {
-            padding: 0 6rem;
+            padding: 1rem 15rem;
         }
 
          @media(min-width: 1024px) {
             flex: 1;
-            align-self: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 1rem 3rem;
         }
-
-        color: #384653;
 
         h2 {
             margin: 1rem 0;
+            margin-bottom: 1rem;
+            color: #f55110;
             font-size: var(--headerFontsize);
+            font-weight: 100;
             text-align: center;
             letter-spacing: var(--headerLetterSpacing);
-            margin-bottom: 1rem;
 
             @media(min-width: 768px) {
                 font-size: 3.8rem;
@@ -81,7 +88,18 @@ export default {
             line-height: 1.4;
 
              @media(min-width: 768px) {
-                font-size: 2rem;
+                font-size: 2.5rem;
+            }
+        }
+
+        span {
+            color: #f55110;
+            font-weight: bold;
+            font-size: 18px;
+            text-transform: uppercase;
+
+            @media(min-width: 768px) {
+                font-size: 3rem;
             }
         }
     }

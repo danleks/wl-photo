@@ -21,7 +21,7 @@
                     </a>
                 </li>
                 <li class="navigation__item">
-                    <a class="navigation__link" href="#gallery">
+                    <a @click="scrollDown" class="navigation__link" href="#gallery">
                         <i class="fas fa-images"></i>
                         gallery
                     </a>
@@ -63,6 +63,17 @@ export default {
         this.$root.$on('in-View-Port', (e) => {
             this.darkenMenu = !e;
         })
+    },
+
+    methods: {
+        scrollDown() {
+            document.getElementById('gallery').scrollIntoView({
+                behavior: 'smooth',
+                block: 'end',
+            });
+
+            console.log(document.getElementById('gallery'));
+        }
     }
 }
 </script>
