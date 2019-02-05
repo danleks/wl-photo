@@ -1,6 +1,10 @@
 <template>
   <div id="app">
-    <div :class="[modal ? blured : '', mainWrapper]">
+    <div class="spinnerWrapper" v-if="spinner">
+      <div class="spinnerWrapper__item"></div>
+      <div class="spinnerWrapper__text"><span>Loading</span></div>
+    </div>
+    <div v-if="!spinner" :class="[modal ? blured : '', mainWrapper]">
       <app-hero>
         <slot name="arrowDown"></slot>
       </app-hero>
@@ -52,6 +56,7 @@ export default {
       sortedImg: [],
       mainWrapper: 'mainWrapper',
       blured: 'mainWrapper--blured',
+      spinner: true,
       gallery: [
         {
           id: 0,
@@ -121,11 +126,17 @@ export default {
       this.modal = true;
       this.modalImg = img;
       this.sortedImg = sortedImg;
+    },
+
+    loadSpinner() {
+      setTimeout(()=>{
+        this.spinner = false;
+      }, 1200)
     }
   },
 
   mounted() {
-
+    this.loadSpinner();
   }
 };
 </script>
@@ -167,5 +178,45 @@ html {
   &--blured {
     filter: blur(3px);
   }
+}
+
+.spinnerWrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 8rem;
+  height: 6rem;
+
+
+  &__item {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: #ccc;
+
+    animation: spinner .8s infinite;
+  }
+
+  &__text {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+}
+
+@keyframes spinner {
+  0% {width: 3rem; height: 3rem;}
+  50% {width: 4rem; height: 4rem;}
+  100% {width: 3rem; height: 3rem;}
 }
 </style>

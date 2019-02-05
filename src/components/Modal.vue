@@ -3,8 +3,8 @@
         <span @click="$emit('close-modal')" class="close"></span>
         <span @click="prev()" class="arrow arrow__prev"></span>
         <span @click="next()" class="arrow arrow__next"></span>
-        <figure class="modalContainer__item">
-                <img v-if="img.url" :src="img.url" alt="">
+       <figure class="modalContainer__item">
+            <img v-if="img.url" :src="img.url" alt="">
         </figure>
     </div>
 </template>
